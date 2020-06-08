@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:nandemoii/next_page.dart';
 
@@ -56,6 +58,39 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Text(
+                "KBOYさん",
+                textAlign: TextAlign.end,
+                style: TextStyle(
+                  fontSize: 30,
+                  //color: Colors.orangeAccent,
+                  //fontWeight: FontWeight.bold,
+                  //fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.underline,
+//                foreground: Paint()
+//                  ..style = PaintingStyle.stroke
+//                  ..strokeWidth = 3
+//                  ..color = Colors.blue[700],
+                ),
+              ),
+            ),
+            DefaultTextStyle(
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.pink,
+              ),
+              child: Column(
+                children: <Widget>[
+                  Text("ジーコさん"),
+                  Text("ジーコさん"),
+                  Text("ジーコさん"),
+                  Text("ジーコさん"),
+                ],
+              ),
+            ),
+            Text("ジーコさん"),
 //
           ],
         ),
