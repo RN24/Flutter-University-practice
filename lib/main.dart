@@ -26,6 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 
   final String title;
+  String name;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -40,7 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  String text = 'つぎへ';
+
+
+  final myFocusNode = FocusNode();
+  String name;
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,46 +60,47 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Text(
-                "KBOYさん",
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontSize: 30,
-                  //color: Colors.orangeAccent,
-                  //fontWeight: FontWeight.bold,
-                  //fontStyle: FontStyle.italic,
-                  decoration: TextDecoration.underline,
-//                foreground: Paint()
-//                  ..style = PaintingStyle.stroke
-//                  ..strokeWidth = 3
-//                  ..color = Colors.blue[700],
-                ),
+            TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+
+                  hintText: '田中太郎'
+              ),
+              onChanged: (text) { //都度都度変更
+                print("First text field: $text");
+                name = text;
+              },
+            ),
+            TextField(
+              controller: myController,//ボタン押したときだけ！
+              focusNode: myFocusNode,
+              decoration: InputDecoration(
+                hintText: '趣味'
               ),
             ),
-            DefaultTextStyle(
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.pink,
-              ),
-              child: Column(
-                children: <Widget>[
-                  Text("ジーコさん"),
-                  Text("ジーコさん"),
-                  Text("ジーコさん"),
-                  Text("ジーコさん"),
-                ],
-              ),
+            RaisedButton(
+              child: Text('新規登録する'),
+              onPressed: () {
+                // TODO:
+                //myFocusNode.requestFocus();
+                //print(myController.text);
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      // Retrieve the text the user has entered by using the
+                      // TextEditingController.
+                      content: Text('どこ触っとんねん！'),
+                    );
+                  },
+                );
+              },
             ),
-            Text("ジーコさん"),
-//
-          ],
+        ],
         ),
-      ),
-    );
+        ),
+      );
+
   }
 }
