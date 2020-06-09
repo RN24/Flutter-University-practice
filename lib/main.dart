@@ -33,19 +33,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final items = [//List<String>.generate(10000, (i) => "Item $i");
+    'kboy 1', 'kboy 2', 'kboy 3', '4',
+  ];
 
 
-
-  final myFocusNode = FocusNode();
-  String name;
-  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,48 +52,76 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: Column(
+        child:ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.horizontal,
           children: <Widget>[
-            TextField(
-              autofocus: true,
-              decoration: InputDecoration(
 
-                  hintText: '田中太郎'
-              ),
-              onChanged: (text) { //都度都度変更
-                print("First text field: $text");
-                name = text;
-              },
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Image.network(
+                  'https://pbs.twimg.com/profile_images/1269267428476719106/6yYseCYR_400x400.jpg'
+                  ),
+                ),
+                Text('kboy'),
+              ],
             ),
-            TextField(
-              controller: myController,//ボタン押したときだけ！
-              focusNode: myFocusNode,
-              decoration: InputDecoration(
-                hintText: '趣味'
-              ),
-            ),
-            RaisedButton(
-              child: Text('新規登録する'),
-              onPressed: () {
-                // TODO:
-                //myFocusNode.requestFocus();
-                //print(myController.text);
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      // Retrieve the text the user has entered by using the
-                      // TextEditingController.
-                      content: Text('どこ触っとんねん！'),
-                    );
-                  },
-                );
-              },
-            ),
-        ],
-        ),
-        ),
-      );
 
+
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Image.network(
+                      'https://pbs.twimg.com/profile_images/1269267428476719106/6yYseCYR_400x400.jpg'
+                  ),
+                ),
+                Text('kboy'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Image.network(
+                      'https://pbs.twimg.com/profile_images/1269267428476719106/6yYseCYR_400x400.jpg'
+                  ),
+                ),
+                Text('kboy'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Image.network(
+                      'https://pbs.twimg.com/profile_images/1269267428476719106/6yYseCYR_400x400.jpg'
+                  ),
+                ),
+                Text('kboy'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Image.network(
+                      'https://pbs.twimg.com/profile_images/1269267428476719106/6yYseCYR_400x400.jpg'
+                  ),
+                ),
+                Text('kboy'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Expanded(
+                  child: Image.network(
+                      'https://pbs.twimg.com/profile_images/1269267428476719106/6yYseCYR_400x400.jpg'
+                  ),
+                ),
+                Text('kboy'),
+              ],
+            ),
+          ],
+        ),
+    ),
+    );
   }
 }
