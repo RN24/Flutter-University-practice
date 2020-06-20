@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nandemoii/book_list_page.dart';
 import 'package:nandemoii/main_model.dart';
 import 'package:nandemoii/next_page.dart';
 import 'package:provider/provider.dart';
@@ -29,8 +30,10 @@ class MyApp extends StatelessWidget {
                   RaisedButton(
                     child: Text('ボタン'),
                     onPressed: () {
-                      //ここでなにか
-                      model.changeKboyText();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BookListPage()),
+                      );
                     },
                   )
                 ],
