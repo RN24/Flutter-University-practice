@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "607576258702",
+    "firebase_url": "https://nandemoii-app.firebaseio.com",
+    "project_id": "nandemoii-app",
+    "storage_bucket": "nandemoii-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607576258702:android:28e8856ed6f5400fb931df",
+        "android_client_info": {
+          "package_name": "com.example.nandemoii"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607576258702-oio65aan5ljs2fbic0f6f8nbgs5euiek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaXmCMksHOBaChf2HMIqi5U_hTvHICaho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607576258702-oio65aan5ljs2fbic0f6f8nbgs5euiek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "607576258702-66nbpf1rcu01g26a7dpdv65b4ds02dc1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nandemoii"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
