@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nandemoii/presentation/book_list/book_list_page.dart';
-import 'package:nandemoii/presentation/main/next_page.dart';
 import 'package:provider/provider.dart';
 
 import 'main_model.dart';
