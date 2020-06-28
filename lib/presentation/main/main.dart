@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nandemoii/presentation/book_list/book_list_page.dart';
+import 'package:nandemoii/presentation/login/login_page.dart';
+import 'package:nandemoii/presentation/signup/signup_page.dart';
 import 'package:provider/provider.dart';
 
 import 'main_model.dart';
@@ -28,14 +30,23 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(fontSize: 30),
                   ),
                   RaisedButton(
-                    child: Text('ボタン'),
+                    child: Text('新規登録'),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => BookListPage()),
+                        MaterialPageRoute(builder: (context) => SignUpPage()),
                       );
                     },
-                  )
+                  ),
+                  RaisedButton(
+                    child: Text('ログイン'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                  ),
                 ],
               ),
             );
