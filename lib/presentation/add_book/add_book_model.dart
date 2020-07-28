@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -34,6 +35,8 @@ class AddBookModel extends ChangeNotifier {
     if (bookTitle.isEmpty) {
       throw ('タイトルを入力してください');
     }
+    final currentUser = await FirebaseAuth.instance.currentUser();
+    print('getCurrentUser' + '+${currentUser.uid}');
     final imageURL = await _uploadImage();
 
     Firestore.instance.collection('books').add(
@@ -46,10 +49,12 @@ class AddBookModel extends ChangeNotifier {
   }
 
   Future updateBook(Book book) async {
+    final currentUser = await FirebaseAuth.instance.currentUser();
+    print('getCurrentUser' + '+${currentUser.uid}');
     final imageURL = await _uploadImage();
-
+    print('uploadImage');
     final document =
-        Firestore.instance.collection('books').document(book.documentID);
+        Firestore.instance.collection('book').document(book.documentID);
     await document.updateData(
       {
         'title': bookTitle,
@@ -57,6 +62,7 @@ class AddBookModel extends ChangeNotifier {
         'updateAt': Timestamp.now(),
       },
     );
+    print('updateBook');
   }
 
   Future<String> _uploadImage() async {
